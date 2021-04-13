@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>CAO 3D TOOL</title>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+		<style>
+			body { margin: 0px;
+				}
+			canvas {  width: 100% ;height: 100%	;}
+			
+			#canvas2{
+				
+				height: 90%;
+				  
+			}
+			#forma{
+				
+				height: 5%;
+				margin-top: 5px;
+				 
+			}
+		</style>
+		<script>
+			window.onload = function(e) {
+	e.preventDefault();
+ document.getElementById("botonCrear").addEventListener("click", function()
+ 	{
+ 		createPiece();
+ 		
+ }
+ );
+};</script>
+	</head>
+	<body oncontextmenu="return false;">
+		<script src=".src/three.js"></script>
+		<script src=".src/GLTFLoader.js"></script>
+		<script src=".src/OrbitControls.js"></script>
+		<script src=".src/DragControls.js"></script>
+		
+
+		<div id="forma">
+		<form>
+		  Largo:
+		  <input type="number" name="largo" value="100">
+		  Ancho:
+		  <input type="number" name="ancho" value="100">
+		  Alto:
+		  <input type="number" name="alto" value="100">
+		  <input type="radio" name="unidades" value="cm" checked> cm
+		  <input type="radio" name="unidades" value="in"> in
+		   <button type="button" id="botonCrear"> Create piece </button> 
+		</form>
+
+		</div>
+		<div id="canvas2"><script src=".src/canvas.js"></script>
+		</div>
+		<div> RR </div>
+	</body>
+</html>
