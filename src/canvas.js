@@ -321,7 +321,7 @@
 				console.error( error );
 
 				} );
-    }
+    
         var animate = function (){
 				requestAnimationFrame(animate);
 				renderer.render(scene,camera);
