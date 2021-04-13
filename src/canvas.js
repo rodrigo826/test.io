@@ -312,7 +312,7 @@
 			var loader = new THREE.GLTFLoader();
 				
 			// Load a glTF resource
-			loader.load('mdcao767v3.gltf', handle_load);
+			loader.load('src/mdcao767v3.gltf', handle_load);
 			var mesh;	
 				 function handle_load(gltf) {
 
