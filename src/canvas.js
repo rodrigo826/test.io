@@ -312,26 +312,15 @@
 			var loader = new THREE.GLTFLoader();
 				
 			// Load a glTF resource
-			loader.load('models/alf.gltf', handle_load);
-			var mesh;	
-				 function handle_load(gltf) {
+			loader.load('models/alf.gltf', function ( gltf ) {
 
-        console.log(gltf);
-        console.log(gltf.scene);
-        mesh = gltf.scene.children[2];
-        mesh.position.x = 0;
-        mesh.position.z = 0;
-        mesh.position.y =0;
-        scene.add(mesh);
-        mesh.children[0].material.color.setHex(0xB2B9C1);
-        mesh.children[0].material.transparent = true;
-        mesh.children[0].material.opacity = 0.1;
+				scene.add( gltf.scene );
 
-        collisionMesh.push(mesh.children[0]);
-        collisionMesh.push(mesh.children[1]);
+				}, undefined, function ( error ) {
 
+				console.error( error );
 
-        console.log(mesh);
+				} );
     }
         var animate = function (){
 				requestAnimationFrame(animate);
