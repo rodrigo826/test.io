@@ -48,7 +48,7 @@
 				window.onload = function(e) {
 					e.preventDefault();
 					var model=document.getElementsByName("models").selectedIndex;
-					var model_name='models/'&document.getElementsByName("mySelect").options[model].text&'.gltf';
+					var model_name='models/'&document.getElementsByName("models").options[model].text&'.gltf';
 					
 					document.getElementById("models").addEventListener("click", function(){
 					uld(model_name);
