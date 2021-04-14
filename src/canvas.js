@@ -1,5 +1,5 @@
 /**
- * @author Fernando Gutierrez de piñeres
+ * 
  * 
  */
  var collisionMesh = [];
@@ -20,7 +20,7 @@
 			document.body.appendChild( container );
 			container.appendChild(renderer.domElement);
 		
-				var ambientLight = new THREE.AmbientLight( 0xcccccc );
+			var ambientLight = new THREE.AmbientLight( 0xcccccc );
 			scene.add( ambientLight );
 							
 			var directionalLight = new THREE.DirectionalLight( 0xf5f5f5,0.3 );
@@ -48,15 +48,15 @@
 			controls2.addEventListener( 'dragstart', function ( event ) {
 
 				
-				controls.enabled = false;
-				gravityOnOff=false;
+			controls.enabled = false;
+			gravityOnOff=false;
 
 			} );
 
 			controls2.addEventListener( 'dragend', function ( event ) {
 
-				controls.enabled = true;
-				gravityOnOff=true;
+			controls.enabled = true;
+			gravityOnOff=true;
 
 			} );
 			//punto
@@ -73,45 +73,51 @@
 			}
 			creationPoint();
 
-
-
+			//
 			function createPiece()
 			{
-
-						const loaderTexture = new THREE.TextureLoader();
+			const loaderTexture = new THREE.TextureLoader();
 			loaderTexture.load('images/box.jpg', (texture) => {
-			  const material = new THREE.MeshBasicMaterial({
-			    map: texture,
-			  });
-              let geometry;
-              if(document.getElementsByName("unidades")[0].checked)
-              {
-			 geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/100,document.getElementsByName("alto")[0].value/100,document.getElementsByName("ancho")[0].value/100);
+			const material = new THREE.MeshBasicMaterial({
+			map: texture,
+			});
+            let geometry;
+            if(document.getElementsByName("unidades")[0].checked)
+            {
+			geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/100,document.getElementsByName("alto")[0].value/100,document.getElementsByName("ancho")[0].value/100);
 			} 
             if(document.getElementsByName("unidades")[1].checked)
-              {
-             geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/39.37,document.getElementsByName("alto")[0].value/39.37,document.getElementsByName("ancho")[0].value/39.37);
+            {
+            geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/39.37,document.getElementsByName("alto")[0].value/39.37,document.getElementsByName("ancho")[0].value/39.37);
             } 
-
-             var cube = new THREE.Mesh( geometry, material );
+            var cube = new THREE.Mesh( geometry, material );
 				
-			 	cube.position.set(sphere.position.x,sphere.position.y,sphere.position.z);
-			 
-			 cube.userData = [];
+			cube.position.set(sphere.position.x,sphere.position.y,sphere.position.z);			 
+			cube.userData = [];
 			scene.add( cube );
-
 			objetos.push(cube);	
 			objetos2.push(cube);	
-			collisionMesh.push(cube);
-			
-			
-		});
-		}
+			collisionMesh.push(cube);			
+			});
+			}
+
+		//
+			function uld(model_name)
+			{
+
+			// Instantiate a loader
+			var loader = new THREE.GLTFLoader();
 				
+			// Load a glTF resource
+			loader.load(model_name, function ( gltf ) {
 
-			//
-			
-
+				scene.add( gltf.scene );
+				}, undefined, function ( error ) {
+				console.error( error );
+				});
+			};
+		    
+		//		
     	function gravity(_mesh)
     	{
 
@@ -120,35 +126,25 @@
     	
     		var box = new THREE.Box3().setFromObject(_mesh);
     		const halfPc = box.getSize(anyTarget).y/2;
-    	
     			
     		//if(_mesh.position.y > floorY && -1*floorY-box.min.y>0.001 && gravityOnOff)
     		//{
     		//	_mesh.position.y-=(-1*floorY+box.min.y)/2;
-		
-		
-
     			//}
     			if(gravityOnOff)
     			{
-    				_mesh.position.y = floorY + halfPc+0.01;
-    				
+    				_mesh.position.y = floorY + halfPc+0.01;		
     			}
 
 
     	}
-
 
     		function createUserData()
     		{
     			for(i=0;i<objetos.length;i++){	
 
     				objetos[i].userData = [];
-
-
     			}
-
-
     		}
 
 			    function savePos(_mesh) {
@@ -161,19 +157,12 @@
 
         for (var vertexIndex = 0; vertexIndex < _mesh.geometry.vertices.length; vertexIndex++) {
             
-        	
-
-            var localVertex = _mesh.geometry.vertices[vertexIndex].clone();
-         
+        	var localVertex = _mesh.geometry.vertices[vertexIndex].clone();       
             var globalVertex = localVertex.applyMatrix4(_mesh.matrix);
-      
             var directionVector = globalVertex.sub(_mesh.position);
-      
             var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
             var collisionResults = ray.intersectObjects(collisionMesh);
 
-           
-            
             if (collisionResults.length > 0 && collisionResults[0].distance < directionVector.length()) {
           
                 collisionBool=true;
@@ -181,9 +170,7 @@
                 collisionPoint=collisionResults[0].point;
              
                 controls2.enabled=false;
-               // reCenter();
-               
-             
+               // reCenter();     
         	}
         	else
         	{
@@ -205,8 +192,6 @@
     	{
     		collisionBoolAll=true;
     	}
-
-
 
              	let posVector = _mesh.position.clone();
 
@@ -229,39 +214,27 @@
 
         for (var vertexIndex = 0; vertexIndex < _mesh.geometry.vertices.length; vertexIndex++) {
             
-        	
-
-            var localVertex = _mesh.geometry.vertices[vertexIndex].clone();
-         
+            var localVertex = _mesh.geometry.vertices[vertexIndex].clone();    
             var globalVertex = localVertex.applyMatrix4(_mesh.matrix);
-      
             var directionVector = globalVertex.sub(_mesh.position);
-      
             var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
             var collisionResults = ray.intersectObjects(collisionMesh);
-
            
-            
             if (collisionResults.length > 0 && collisionResults[0].distance < directionVector.length()) {
           
                 collisionBool=true;
                 collisionBoolArray.push(collisionBool);
-                collisionPoint=collisionResults[0].point;
-             
+                collisionPoint=collisionResults[0].point;   
                 controls2.enabled=false;
                 
                // reCenter();
-               
-             
-        	}
+            }
         	else
         	{
         		controls2.enabled=true;
         		collisionBool=false;
         		collisionBoolArray.push(collisionBool);
-
         	}
-        
         }
         let contadorTrue=0;
     	for (var i = 0; i< collisionBoolArray.length;i++) {
@@ -278,8 +251,6 @@
              	
     	return [collisionBoolAll,collisionPoint];
     }
-
-    		               		
 
     		function  distanceToNextObject(obj, axis)
     		{
@@ -306,22 +277,7 @@
     			//console.log(point);
     			return point;
     		}
-
-
-			// Instantiate a loader
-			var loader = new THREE.GLTFLoader();
-				
-			// Load a glTF resource
-			loader.load('models/alf.gltf', function ( gltf ) {
-
-				scene.add( gltf.scene );
-
-				}, undefined, function ( error ) {
-
-				console.error( error );
-
-				} );
-    
+		
         var animate = function (){
 				requestAnimationFrame(animate);
 				renderer.render(scene,camera);
@@ -336,17 +292,12 @@
 				   		checkCollision2(objetos[i]);
 				   		collvar=checkCollision2(objetos[i]);
 				   		
-				   	
-				   		
-				   		
 				   		_mesh = objetos[i];
 				   		if (collvar[0])
 				   		{
 				   			 contadorIteraciones+=1;
 				   			let j= Math.max(objetos[i].userData.length - contadorIteraciones-1,0);	
 				   			
-				   			
-
                		_mesh.position.y=_mesh.userData[j][0].y;
                		_mesh.position.x=_mesh.userData[j][0].x;
                		_mesh.position.z=_mesh.userData[j][0].z;
@@ -361,14 +312,8 @@
 				   		contadorIteraciones=0;
 				   	}
 
-				   		
-				   		
-
-				   //console.log(collisionBool);
-				   
-				
+				   //console.log(collisionBool);				
 			};
-
 			};
 
 			animate();
