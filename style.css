@@ -21,15 +21,16 @@ canvas {
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
+  background: #F5F5F5;
 }
 			
 #canvas2 {				
-	height: 90%;
+  height: 90%;
 }
 			
 #forma{				
-	height: 5%;
-	margin-top: 5px;				 
+  height: 5%;
+  margin-top: 5px;				 
 }
 
 .wrap {
