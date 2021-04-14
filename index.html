@@ -50,7 +50,7 @@
 					var model=document.getElementsByName("models").selectedIndex;
 					var model_name='models/'&document.getElementsByName("models").options[model].text&'.gltf';
 					
-					document.getElementById("models").addEventListener("click", function(){
+					document.getElementById("models").addEventListener("change", function(){
 					uld(model_name);
 					}
 					);
