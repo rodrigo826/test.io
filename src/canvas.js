@@ -66,10 +66,17 @@ function creationPoint(){
 creationPoint();
 
 //
+function clear_canvas(){
+	for(var i = scene.children.length - 1; i >= 0; i--) { 
+		obj = scene.children[i];
+		scene.remove(obj); 
+   }
+}
+
+//
 function uld(model_name){
 
 	// Instantiate a loader
-	THREE.GLTFLoader.removeAll;	
 	var loader = new THREE.GLTFLoader();		
 	// Load a glTF resource
 	
