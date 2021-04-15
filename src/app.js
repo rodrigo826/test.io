@@ -83,9 +83,9 @@ function uld(model_name){
 
 		scene.add( gltf.scene );
 		obj = scene.children[0];
-		const box = new Box3().setFromObject(obj);
-		const size = box.getSize(new Vector3()).length();
-		const center = box.getCenter(new Vector3());
+		const box = new THREE.Box3().setFromObject(obj);
+		const size = box.getSize(new THREE.Vector3()).length();
+		const center = box.getCenter(new THREE.Vector3());
 
 		obj.position.x += (obj.position.x - center.x);
 		obj.position.y += (obj.position.y - center.y);
