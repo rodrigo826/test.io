@@ -69,9 +69,10 @@ creationPoint();
 function uld(model_name){
 
 	// Instantiate a loader
-	var loader = new THREE.GLTFLoader();
-				
+	THREE.GLTFLoader.removeAll;	
+	var loader = new THREE.GLTFLoader();		
 	// Load a glTF resource
+	
 	loader.load(model_name, function ( gltf ) {
 
 		scene.add( gltf.scene );
