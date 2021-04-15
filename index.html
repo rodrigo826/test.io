@@ -45,10 +45,18 @@
 			  <option value="pmc">PMC LD</option>
 			
 			  <script>
-			 	var model=document.getElementsByName("models").selectedIndex;
-				//var model_name='models/'&document.getElementsByName("models").options[model].text&'.gltf';
-				document.getElementById("models").innerHTML = model;
-			  </script>
+				window.onload = function(e) {
+				e.preventDefault();
+ 				document.getElementById("models").addEventListener("change", function(){
+					var choice  = document.getElementById("models");
+					var strUser = choice.options[choice.selectedIndex].value;
+					var model_name = "models/" + strUser + ".gltf";
+					alert("You selected " + model_name);
+					uld(model_name);	
+ 				}
+ 				);
+			};	
+			</script>	
 			</select>
 		</header>
 
