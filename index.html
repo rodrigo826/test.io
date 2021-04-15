@@ -23,7 +23,8 @@
 					var choice  = document.getElementById("models");
 					var strUser = choice.options[choice.selectedIndex].value;
 					var model_name = "models/" + strUser + ".gltf";
-					alert("You selected " + model_name);
+					//alert("You selected " + model_name);
+					clear_canvas();
 					uld(model_name);	
 				 });
 				document.getElementById("piece").addEventListener("click", function(){
@@ -37,7 +38,7 @@
 			<span class="separator layout-md"> | </span>
 			<span class="flex-grow"></span>
 			<!--button id="download-btn" class="item" style="display: none;">⬇&nbsp;&nbsp;&nbsp;Download</button-->
-			<h2><label for="models"> Choose a ULD or Aircraft Main Deck &nbsp </label></h2>
+			<h2><label for="models"> Choose ULD or Aircraft Main Deck &nbsp </label></h2>
 		  
 			<select name="models" id="models">
 				<option value="" selected disabled>Select ULD</option>
