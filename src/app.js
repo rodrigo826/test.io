@@ -85,9 +85,9 @@ function uld(model_name){
 	}, undefined, function ( error ) {
 		console.error( error );
 		});
-	container.position.x += (container.position.x - center.x);
-    container.position.y += (container.position.y - center.y);
-    container.position.z += (container.position.z - center.z);	
+	scene.position.x += (scene.position.x - center.x);
+    scene.position.y += (scene.position.y - center.y);
+    scene.position.z += (scene.position.z - center.z);	
 };
 
 //
