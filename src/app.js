@@ -52,18 +52,18 @@ controls2.addEventListener( 'dragend', function ( event ) {
 } );
 
 //punto
-var sphere ;
-function creationPoint(){
+//var sphere ;
+//function creationPoint(){
 
-	var geometry = new THREE.SphereGeometry( 0.05);
-	var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-	sphere = new THREE.Mesh( geometry, material );
-	sphere.name="sphere";
-	scene.add( sphere );
-	objetos2.push(sphere);
-}
+//	var geometry = new THREE.SphereGeometry( 0.05);
+//	var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+//	sphere = new THREE.Mesh( geometry, material );
+//	sphere.name="sphere";
+//	scene.add( sphere );
+//	objetos2.push(sphere);
+//}
 			
-creationPoint();
+//creationPoint();
 
 //
 function clear_canvas(){
