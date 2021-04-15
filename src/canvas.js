@@ -66,6 +66,21 @@ function creationPoint(){
 creationPoint();
 
 //
+function uld(model_name){
+
+	// Instantiate a loader
+	var loader = new THREE.GLTFLoader();
+				
+	// Load a glTF resource
+	loader.load(model_name, function ( gltf ) {
+
+		scene.add( gltf.scene );
+	}, undefined, function ( error ) {
+		console.error( error );
+		});
+};
+
+//
 function createPiece(){
 
 	const loaderTexture = new THREE.TextureLoader();
@@ -91,23 +106,8 @@ function createPiece(){
 		collisionMesh.push(cube);			
 	});
 }
-
-		//
-function uld(model_name){
-
-			// Instantiate a loader
-	var loader = new THREE.GLTFLoader();
-				
-	// Load a glTF resource
-	loader.load(model_name, function ( gltf ) {
-
-		scene.add( gltf.scene );
-	}, undefined, function ( error ) {
-		console.error( error );
-		});
-};
 		    
-		//		
+//		
 function gravity(_mesh){
 
     let anyTarget= new THREE.Vector3();
@@ -123,8 +123,6 @@ function gravity(_mesh){
     if(gravityOnOff){
     	_mesh.position.y = floorY + halfPc+0.01;		
     }
-
-
 }
 
 function createUserData(){
@@ -163,8 +161,7 @@ function savePos(_mesh) {
         	controls2.enabled=true;
         	collisionBool=false;
         	collisionBoolArray.push(collisionBool);
-        }
-        
+        }    
     }
         
 	let contadorTrue=0;
@@ -185,8 +182,7 @@ function savePos(_mesh) {
 
 	if(_mesh.userData.length>50){
     	_mesh.userData.shift();
-	}
-            	
+	}            	
 }
 
 function checkCollision2(_mesh) {
