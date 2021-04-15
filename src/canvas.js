@@ -81,7 +81,7 @@ function uld(model_name){
 };
 
 //
-function createPiece(){
+function create_piece(){
 
 	const loaderTexture = new THREE.TextureLoader();
 	loaderTexture.load('images/box.jpg', (texture) => {
@@ -89,12 +89,12 @@ function createPiece(){
 		map: texture,
 		});
         let geometry;
-        if(document.getElementsByName("unidades")[0].checked){
-			geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/100,document.getElementsByName("alto")[0].value/100,document.getElementsByName("ancho")[0].value/100);
+        if(document.getElementsByName("units")[0].checked){
+			geometry = new THREE.BoxGeometry(document.getElementsByName("length")[0].value/100,document.getElementsByName("height")[0].value/100,document.getElementsByName("width")[0].value/100);
 			} 
-            if(document.getElementsByName("unidades")[1].checked)
+            if(document.getElementsByName("units")[1].checked)
             {
-            geometry = new THREE.BoxGeometry(document.getElementsByName("largo")[0].value/39.37,document.getElementsByName("alto")[0].value/39.37,document.getElementsByName("ancho")[0].value/39.37);
+            geometry = new THREE.BoxGeometry(document.getElementsByName("length")[0].value/39.37,document.getElementsByName("height")[0].value/39.37,document.getElementsByName("width")[0].value/39.37);
             } 
             var cube = new THREE.Mesh( geometry, material );
 				
