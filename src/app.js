@@ -82,12 +82,12 @@ function uld(model_name){
 	loader.load(model_name, function ( gltf ) {
 
 		scene.add( gltf.scene );
+		scene.position.x += (scene.position.x - center.x);
+		scene.position.y += (scene.position.y - center.y);
+		scene.position.z += (scene.position.z - center.z);	
 	}, undefined, function ( error ) {
 		console.error( error );
 		});
-	scene.position.x += (scene.position.x - center.x);
-    scene.position.y += (scene.position.y - center.y);
-    scene.position.z += (scene.position.z - center.z);	
 };
 
 //
