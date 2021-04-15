@@ -1,7 +1,7 @@
 
 var collisionMesh = [];
 var gravityOnOff = true;
-var worldFloor = -0.768;
+//var worldFloor = -0.768;
 var arrayPos= [];
 var contadorIteraciones;
 var scene = new THREE.Scene();
@@ -51,20 +51,6 @@ controls2.addEventListener( 'dragend', function ( event ) {
 	gravityOnOff=true;
 } );
 
-//punto
-//var sphere ;
-//function creationPoint(){
-
-//	var geometry = new THREE.SphereGeometry( 0.05);
-//	var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-//	sphere = new THREE.Mesh( geometry, material );
-//	sphere.name="sphere";
-//	scene.add( sphere );
-//	objetos2.push(sphere);
-//}
-			
-//creationPoint();
-
 //
 function clear_canvas(){
 	for(var i = scene.children.length - 1; i >= 0; i--) { 
@@ -112,13 +98,12 @@ function create_piece(){
             geometry = new THREE.BoxGeometry(document.getElementsByName("width")[0].value/39.37,document.getElementsByName("height")[0].value/39.37,document.getElementsByName("length")[0].value/39.37);
             } 
             var cube = new THREE.Mesh( geometry, material );
-				
-		//cube.position.set(sphere.position.x,sphere.position.y,sphere.position.z);			 
+						 
 		cube.userData = [];
 		scene.add( cube );
 		objetos.push(cube);	
-		objetos2.push(cube);	
-		//collisionMesh.push(cube);			
+		objetos2.push(cube);
+		gravity(cube);			
 	});
 }
 		    
@@ -130,11 +115,7 @@ function gravity(_mesh){
     	
     var box = new THREE.Box3().setFromObject(_mesh);
     const halfPc = box.getSize(anyTarget).y/2;
-    			
-    //if(_mesh.position.y > floorY && -1*floorY-box.min.y>0.001 && gravityOnOff)
-    //{
-    //	_mesh.position.y-=(-1*floorY+box.min.y)/2;
-    //}
+    		
     if(gravityOnOff){
     	_mesh.position.y = floorY + halfPc+0.01;		
     }
@@ -291,16 +272,11 @@ var animate = function (){
             _mesh.position.x=_mesh.userData[j][0].x;
             _mesh.position.z=_mesh.userData[j][0].z;
 
-               		
-            //contadorFalse+=1;
-               	
-            //console.log(contadorFalse);
 		};
 		if(checkCollision2(objetos[i])[0]===false){
 			contadorIteraciones=0;
 		}
-
-		//console.log(collisionBool);				
+		
 	};
 };
 
