@@ -79,13 +79,15 @@ function uld(model_name){
 	// Instantiate a loader
 	var loader = new THREE.GLTFLoader();		
 	// Load a glTF resource
-	
 	loader.load(model_name, function ( gltf ) {
 
 		scene.add( gltf.scene );
 	}, undefined, function ( error ) {
 		console.error( error );
 		});
+	container.position.x += (container.position.x - center.x);
+    container.position.y += (container.position.y - center.y);
+    container.position.z += (container.position.z - center.z);	
 };
 
 //
