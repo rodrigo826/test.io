@@ -8,16 +8,9 @@
 		<meta name="description" content="Aircraft Freight 3D models">
 		<link rel="stylesheet" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
-		<script>
-			window.onload = function(e) {
-				e.preventDefault();
- 				document.getElementById("botonCrear").addEventListener("click", function(){
- 				createPiece();
- 				}
- 				);
-			};
-		</script>
+
 	</head>
+
 	<body oncontextmenu="return false;">
 		<script src="src/three.js"></script>
 		<script src="src/GLTFLoader.js"></script>
@@ -32,45 +25,53 @@
 			<h2><label for="models"> Choose a ULD or Aircraft Main Deck &nbsp </label></h2>
 		  
 			<select name="models" id="models">
-			  <option value="2md_a330">Main Deck A330F</option>
-			  <option value="2md_b747">Main Deck B747F</option>
-			  <option value="2md_b777">Main Deck B777F</option>
-			  <option value="2md_b767">Main Deck B767F</option>
-			  <option value="4md_b767">Main Deck Large B767F</option>
-			  <option value="ake">AKE</option>
-			  <option value="alf">ALF</option>
-			  <option value="dpe">DPE</option>
-			  <option value="dqf">DQF</option>
-			  <option value="pag">PAG LD</option>
-			  <option value="pmc">PMC LD</option>
+				<option value="2md_a330">Main Deck A330F</option>
+			  	<option value="2md_b747">Main Deck B747F</option>
+			  	<option value="2md_b777">Main Deck B777F</option>
+			  	<option value="2md_b767">Main Deck B767F</option>
+			  	<option value="4md_b767">Main Deck Large B767F</option>
+			  	<option value="ake">AKE</option>
+			  	<option value="alf">ALF</option>
+			  	<option value="dpe">DPE</option>
+			  	<option value="dqf">DQF</option>
+			  	<option value="pag">PAG LD</option>
+			  	<option value="pmc">PMC LD</option>
 			
-			  <script>
+			  	<script>
 				window.onload = function(e) {
-				e.preventDefault();
- 				document.getElementById("models").addEventListener("change", function(){
-					var choice  = document.getElementById("models");
-					var strUser = choice.options[choice.selectedIndex].value;
-					var model_name = "models/" + strUser + ".gltf";
-					alert("You selected " + model_name);
-					uld(model_name);	
- 				}
- 				);
-			};	
-			</script>	
+					e.preventDefault();
+ 					document.getElementById("models").addEventListener("change", function(){
+						var choice  = document.getElementById("models");
+						var strUser = choice.options[choice.selectedIndex].value;
+						var model_name = "models/" + strUser + ".gltf";
+						alert("You selected " + model_name);
+						uld(model_name);	
+ 					});
+				};	
+				</script>	
 			</select>
 		</header>
 
 		<div id="forma">
 		<form>
-		  Largo:
-		  <input type="number" name="largo" value="100">
-		  Ancho:
-		  <input type="number" name="ancho" value="100">
-		  Alto:
-		  <input type="number" name="alto" value="100">
-		  <input type="radio" name="unidades" value="cm" checked> cm
-		  <input type="radio" name="unidades" value="in"> in
-		   <button type="button" id="botonCrear"> Create piece </button> 
+			Largo:
+			<input type="number" name="largo" value="100">
+			Ancho:
+			<input type="number" name="ancho" value="100">
+			Alto:
+			<input type="number" name="alto" value="100">
+			<input type="radio" name="unidades" value="cm" checked> cm
+			<input type="radio" name="unidades" value="in"> in
+			<button type="button" id="botonCrear"> Create piece </button> 
+		
+			<script>
+			window.onload = function(e) {
+				e.preventDefault();
+ 				document.getElementById("botonCrear").addEventListener("click", function(){
+ 				createPiece();
+ 				});
+			};
+			</script>
 		</form>
 		</div>
 
