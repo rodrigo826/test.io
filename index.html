@@ -16,7 +16,22 @@
 		<script src="src/GLTFLoader.js"></script>
 		<script src="src/OrbitControls.js"></script>
 		<script src="src/DragControls.js"></script>
-		
+		<script>
+			window.onload = function(e) {
+				e.preventDefault();
+				document.getElementById("models").addEventListener("change", function(){
+					var choice  = document.getElementById("models");
+					var strUser = choice.options[choice.selectedIndex].value;
+					var model_name = "models/" + strUser + ".gltf";
+					alert("You selected " + model_name);
+					uld(model_name);	
+				 });
+				document.getElementById("botonCrear").addEventListener("click", function(){
+ 				createPiece();
+ 				});
+			};	
+		</script>	
+
 		<header>
 			<h1><a href="/">Freight 3D Tool</a></h1>
 			<span class="separator layout-md"> | </span>
@@ -35,20 +50,7 @@
 			  	<option value="dpe">DPE</option>
 			  	<option value="dqf">DQF</option>
 			  	<option value="pag">PAG LD</option>
-			  	<option value="pmc">PMC LD</option>
-			
-			  	<script>
-				window.onload = function(a) {
-					a.preventDefault();
- 					document.getElementById("models").addEventListener("change", function(){
-						var choice  = document.getElementById("models");
-						var strUser = choice.options[choice.selectedIndex].value;
-						var model_name = "models/" + strUser + ".gltf";
-						alert("You selected " + model_name);
-						uld(model_name);	
- 					});
-				};	
-				</script>	
+			  	<option value="pmc">PMC LD</option>			
 			</select>
 		</header>
 
@@ -63,15 +65,6 @@
 			<input type="radio" name="unidades" value="cm" checked> cm
 			<input type="radio" name="unidades" value="in"> in
 			<button type="button" id="botonCrear"> Create piece </button> 
-		
-			<script>
-			window.onload = function(e) {
-				e.preventDefault();
- 				document.getElementById("botonCrear").addEventListener("click", function(){
- 				createPiece();
- 				});
-			};
-			</script>
 		</form>
 		</div>
 
