@@ -106,7 +106,7 @@ function create_piece(){
             } 
             var cube = new THREE.Mesh( geometry, material );
 				
-		cube.position.set(sphere.position.x,sphere.position.y,sphere.position.z);			 
+		//cube.position.set(sphere.position.x,sphere.position.y,sphere.position.z);			 
 		cube.userData = [];
 		scene.add( cube );
 		objetos.push(cube);	
