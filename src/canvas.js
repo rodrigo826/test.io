@@ -90,11 +90,11 @@ function create_piece(){
 		});
         let geometry;
         if(document.getElementsByName("units")[0].checked){
-			geometry = new THREE.BoxGeometry(document.getElementsByName("length")[0].value/100,document.getElementsByName("height")[0].value/100,document.getElementsByName("width")[0].value/100);
+			geometry = new THREE.BoxGeometry(document.getElementsByName("width")[0].value/100,document.getElementsByName("height")[0].value/100,document.getElementsByName("length")[0].value/100);
 			} 
             if(document.getElementsByName("units")[1].checked)
             {
-            geometry = new THREE.BoxGeometry(document.getElementsByName("length")[0].value/39.37,document.getElementsByName("height")[0].value/39.37,document.getElementsByName("width")[0].value/39.37);
+            geometry = new THREE.BoxGeometry(document.getElementsByName("width")[0].value/39.37,document.getElementsByName("height")[0].value/39.37,document.getElementsByName("length")[0].value/39.37);
             } 
             var cube = new THREE.Mesh( geometry, material );
 				
