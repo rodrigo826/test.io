@@ -38,8 +38,8 @@
 			  	<option value="pmc">PMC LD</option>
 			
 			  	<script>
-				window.onload = function(e) {
-					e.preventDefault();
+				window.onload = function(a) {
+					a.preventDefault();
  					document.getElementById("models").addEventListener("change", function(){
 						var choice  = document.getElementById("models");
 						var strUser = choice.options[choice.selectedIndex].value;
