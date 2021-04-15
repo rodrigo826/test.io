@@ -118,7 +118,7 @@ function create_piece(){
 		scene.add( cube );
 		objetos.push(cube);	
 		objetos2.push(cube);	
-		collisionMesh.push(cube);			
+		//collisionMesh.push(cube);			
 	});
 }
 		    
