@@ -75,7 +75,7 @@ function uld(model_name){
 
 		obj.position.x += (obj.position.x - center.x);
 		obj.position.y += (obj.position.y - center.y);
-		//obj.position.z += (obj.position.z - center.z);	
+		obj.position.z += (obj.position.z - center.z);	
 	}, undefined, function ( error ) {
 		console.error( error );
 		});
@@ -108,18 +108,18 @@ function create_piece(){
 }
 		    
 //		
-function gravity(_mesh){
-
-    let anyTarget= new THREE.Vector3();
-    let floorY = distanceToNextObject(_mesh , "y")
-    	
-    var box = new THREE.Box3().setFromObject(_mesh);
-    const halfPc = box.getSize(anyTarget).y/2;
-    		
-    if(gravityOnOff){
-    	_mesh.position.y = floorY + halfPc+0.01;		
-    }
-}
+//function gravity(_mesh){
+//
+//    let anyTarget= new THREE.Vector3();
+//    let floorY = distanceToNextObject(_mesh , "y")
+//    	
+//    var box = new THREE.Box3().setFromObject(_mesh);
+//    const halfPc = box.getSize(anyTarget).y/2;
+//    		
+//    if(gravityOnOff){
+//    	_mesh.position.y = floorY + halfPc+0.01;		
+//    }
+//}
 
 function createUserData(){
     for(i=0;i<objetos.length;i++){	
@@ -172,9 +172,7 @@ function savePos(_mesh) {
 	}
 
 	let posVector = _mesh.position.clone();
-
 	_mesh.userData.push([posVector,collisionBoolAll,collisionBoolArray]);
-	//console.log([posVector,collisionVar[0]]);
 
 	if(_mesh.userData.length>50){
     	_mesh.userData.shift();
@@ -244,7 +242,7 @@ function  distanceToNextObject(obj, axis){
 
     raycaster.set(obj.position, new THREE.Vector3(x,y,z));
     let intersects = raycaster.intersectObjects(collisionMesh);
-    let point = intersects[0].point.y
+    //let point = intersects[0].point.y
     			
     //console.log(point);
     return point;
@@ -255,10 +253,9 @@ var animate = function (){
 	renderer.render(scene,camera);
 	controls.update();
 				   
-	//if(typeof cube !== 'undefined')
 	var collvar;
 	for(var i=0;i<objetos.length;i++){
-		gravity(objetos[i]);	
+		//gravity(objetos[i]);	
 		savePos(objetos[i]);
 		checkCollision2(objetos[i]);
 		collvar=checkCollision2(objetos[i]);
