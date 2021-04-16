@@ -75,7 +75,7 @@ function uld(model_name){
 
 		obj.position.x += (obj.position.x - center.x);
 		obj.position.y += (obj.position.y - center.y);
-		obj.position.z += (obj.position.z - center.z);	
+		//obj.position.z += (obj.position.z - center.z);	
 	}, undefined, function ( error ) {
 		console.error( error );
 		});
@@ -103,7 +103,7 @@ function create_piece(){
 		scene.add( cube );
 		objetos.push(cube);	
 		objetos2.push(cube);
-		gravity(cube);			
+		//gravity(cube);			
 	});
 }
 		    
